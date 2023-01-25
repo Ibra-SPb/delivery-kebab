@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function CourierProducts({ product, courier }) {
+module.exports = function CourierProducts({product, user}) {
   return (
     <div id={product.id}>
       <img src={product.image} alt="product_pic" />
@@ -9,7 +9,8 @@ module.exports = function CourierProducts({ product, courier }) {
       <p>{product.discountPrice}</p>
       <p>{product.status}</p>
       <address>{product.address}</address>
-      <button className="change-button">Изменить</button>
+      <button className='change-button'>Изменить</button>
     </div>
   );
 };
+x
