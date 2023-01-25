@@ -1,7 +1,11 @@
-/* eslint-disable react/prop-types */
+
+const React = require('react');
+const Layout = require('./Layout');
+
 const React = require('react');
 const Layout = require('./Layout');
 const AllProducts = require('./AllProducts');
+
 
 module.exports = function Main({
   title, allProducts, user, courier,
