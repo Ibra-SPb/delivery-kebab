@@ -1,6 +1,6 @@
 const React = require('react');
 
-module.exports = function CourierProducts({ product, user }) {
+module.exports = function CourierProducts({ product, courier }) {
   return (
     <div id={product.id}>
       <img src={product.image} alt="product_pic" />
