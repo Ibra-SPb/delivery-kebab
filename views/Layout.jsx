@@ -1,7 +1,7 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-module.exports = function Layout({ children, title }) {
+module.exports = function Layout({ children, title, name }) {
   return (
     <html lang="ru">
       <head>
@@ -24,7 +24,7 @@ module.exports = function Layout({ children, title }) {
         <script src="/script/client.js" defer />
       </head>
       <body>
-        <Navbar />
+        <Navbar name={name}/>
         <div>{children}</div>
       </body>
     </html>
