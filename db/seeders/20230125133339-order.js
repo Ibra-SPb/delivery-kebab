@@ -13,7 +13,7 @@ module.exports = {
       },
       {
         userId: 2,
-        productId: 1,
+        productId: 2,
         address: "пр. Чернышевского, 17, Санкт-Петербург, 191123",
         status: "ordered",
         discount: 30,
@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         userId: 2,
-        productId: 1,
+        productId: 3,
         address: "пр. Чернышевского, 17, Санкт-Петербург, 191123",
         status: "closed",
         discount: 30,
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   async down(queryInterface) {
-    await queryInterface.bulkDelete('Orders', null, {});
+    await queryInterface.bulkDelete('Orders');
   },
 };
