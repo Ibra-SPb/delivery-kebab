@@ -13,4 +13,3 @@ module.exports = function CourierProducts({product, user}) {
     </div>
   );
 };
-x

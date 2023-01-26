@@ -9,9 +9,9 @@ module.exports = function ProductPage({ product, user }) {
       <p>{product.discountPrice}</p>
       <p>{product.status}</p>
       <address>{product.address}</address>
-      {/* {user && user.id === product.userId && (
-        <button className="buy-button">Выкупить</button>
-      )} */}
+      {user && (
+        <button className="buy-button" type="button">Выкупить</button>
+      )}
     </div>
   );
 };
