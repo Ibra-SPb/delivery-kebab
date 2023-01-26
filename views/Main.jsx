@@ -1,9 +1,6 @@
 
 const React = require('react');
 const Layout = require('./Layout');
-
-const React = require('react');
-const Layout = require('./Layout');
 const AllProducts = require('./AllProducts');
 
 
