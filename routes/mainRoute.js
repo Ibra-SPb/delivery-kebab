@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
   const user = userId && (await User.findByPk(Number(userId)));
   const products = await Product.findAll()
   const orders = await Order.listWithProduct(userId);
-
   res.renderComponent(Main, { title: 'Главная', user, products, orders });
   // let name;
   // let role;
