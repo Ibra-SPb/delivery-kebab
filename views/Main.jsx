@@ -1,14 +1,11 @@
 
 const React = require('react');
 const Layout = require('./Layout');
-
-const React = require('react');
-const Layout = require('./Layout');
 const AllProducts = require('./AllProducts');
 
 
 module.exports = function Main({
-  title, allProducts, user, courier,
+  title, allProducts, user,
 }) {
   return (
     <div>
@@ -16,7 +13,6 @@ module.exports = function Main({
         <div>
           <AllProducts
             user={user}
-            courier={courier}
             allProducts={allProducts}
           />
         </div>
