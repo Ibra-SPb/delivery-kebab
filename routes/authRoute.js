@@ -9,13 +9,14 @@ router
   })
   .post('/', async (req, res) => {
     const { email, password } = req.body;
+    console.log(req.body);
     try {
       const user = await User.findOne({ where: { email } });
       const validPassword = await bcrypt.compare(password, user.password);
       if (user) {
         if (validPassword) {
           req.session.userId = user.id;
-          return res.status(201).json({ message: 'success', status: true });
+          return res.status(201).json({ message: 'success', status: true })
         }
       }
       if (!user) {

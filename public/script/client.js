@@ -44,8 +44,9 @@ logForm.addEventListener('submit', async (e) => {
         password: password.value,
       }),
   })
+  
   const data = await res.json();
-
+  console.log(data)
   if (!data.status)  {
     const errorBlock = document.querySelector('.errorBlock')
     errorBlock.innerHTML = data.message;
@@ -107,8 +108,7 @@ function init() {
   // Если вы хотите задать неизменяемую точку "откуда", раскомментируйте код ниже.
   routePanelControl.routePanel.state.set({
     fromEnabled: false,
-    from: 'Москва',
-    to: 'Санкт-Петербург',
+    from: 'Москва'
   });
 
   myMap.controls.add(routePanelControl).add(zoomControl);

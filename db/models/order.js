@@ -3,10 +3,23 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     static associate({ User, Product }) {
-      this.belongsTo(User, { foreignKey: 'userId' });
-      this.belongsTo(Product, { foreignKey: 'productId' });
+      Order.User = Order.belongsTo(User, { foreignKey: 'userId' });
+      Order.Product = Order.belongsTo(Product, {
+        foreignKey: 'productId',
+        as: 'product',
+        attributes: ['image', 'title', 'price']
+      });
+    }
+
+    static listWithProduct(userId) {
+      return Order.findAll({
+        where: { userId },
+        order: [['createdAt', 'DESC']],
+        include: [Order.Product],
+      });
     }
   }
+
   Order.init(
     {
       userId: {
