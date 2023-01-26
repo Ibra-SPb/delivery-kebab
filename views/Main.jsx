@@ -5,15 +5,14 @@ const AllProducts = require('./AllProducts');
 
 
 module.exports = function Main({
-  title, allProducts, user, courier,
+  title, allProducts, user,
 }) {
   return (
     <div>
-      <Layout title={title} allProducts={allProducts}>
+      <Layout title={title}>
         <div>
           <AllProducts
             user={user}
-            courier={courier}
             allProducts={allProducts}
           />
         </div>
