@@ -1,0 +1,34 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #0ec645;
+    height: 60px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.auth {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-brand {
+    color:white;
+    font-size: 15px;
+}
+
+.img-logo {
+    position:relative;
+    width:50px;
+    height:50px;
+}
+
+.img-logo img {
+    height: 100%;
+    width: auto;
+  }
