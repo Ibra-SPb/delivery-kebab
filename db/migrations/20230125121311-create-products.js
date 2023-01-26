@@ -20,17 +20,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      discountPrice: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      status: {
-        type: Sequelize.TEXT,
-      },
-      address: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -10,16 +10,16 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Product.init({
-    image: { type: DataTypes.TEXT, allowNull: false },
-    title: { type: DataTypes.TEXT, allowNull: false },
-    price: { type: DataTypes.INTEGER, allowNull: false },
-    discountPrice: { type: DataTypes.INTEGER, allowNull: false },
-    status: { type: DataTypes.TEXT },
-    address: { type: DataTypes.TEXT, allowNull: false },
-  }, {
-    sequelize,
-    modelName: 'Product',
-  });
+  Product.init(
+    {
+      image: { type: DataTypes.TEXT, allowNull: false },
+      title: { type: DataTypes.TEXT, allowNull: false },
+      price: { type: DataTypes.INTEGER, allowNull: false },
+    },
+    {
+      sequelize,
+      modelName: "Product",
+    }
+  );
   return Product;
 };

@@ -23,6 +23,20 @@ module.exports = (sequelize, DataTypes) => {
           key: 'id',
         },
       },
+      address: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      status: {
+        type: DataTypes.TEXT,
+      },
+      discount: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.TEXT,
+      },
     },
     {
       sequelize,

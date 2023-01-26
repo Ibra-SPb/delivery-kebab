@@ -22,6 +22,20 @@ module.exports = {
           key: 'id',
         },
       },
+      address: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
+      status: {
+        type: Sequelize.TEXT,
+      },
+      discount: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      phone: {
+        type: Sequelize.TEXT,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
