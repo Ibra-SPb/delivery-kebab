@@ -14,11 +14,11 @@ const serverConfig = (app) => {
   app.use(morgan('dev'));
   app.use(cors(corsOption));
   app.use(express.json());
-  app.use(ssr);
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static('public'));
   app.use(cookieParser());
   app.use(session(sessionConfig));
+  app.use(ssr);
 };
 
 module.exports = serverConfig;
