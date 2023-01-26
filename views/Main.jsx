@@ -8,7 +8,7 @@ module.exports = function Main({
 }) {
   return (
     <div>
-      <Layout title={title}>
+      <Layout title={title} allProducts={allProducts}>
         <div>
           <AllProducts
             user={user}
