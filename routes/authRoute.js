@@ -14,18 +14,15 @@ router
       const validPassword = await bcrypt.compare(password, user.password);
       if (user) {
         if (validPassword) {
-          // console.log(user,'==========')
           req.session.userId = user.id;
           return res.status(201).json({ message: 'success', status: true });
         }
       }
       if (!user) {
-        return res
-          .status(400)
-          .json({
-            message: 'Пользователя с таким e-mail не существует',
-            status: false,
-          });
+        return res.status(400).json({
+          message: 'Пользователя с таким e-mail не существует',
+          status: false,
+        });
       }
       return res
         .status(400)

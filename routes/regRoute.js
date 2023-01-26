@@ -8,9 +8,7 @@ router
     res.renderComponent(Reg, { title: 'Регистрация' });
   })
   .post('/', async (req, res) => {
-    const {
-      name, email, phone, role, address, password,
-    } = req.body;
+    const { name, email, phone, role, address, password } = req.body;
     try {
       if (!name || !email || !phone || !role || !address || !password) {
         return res
@@ -19,16 +17,14 @@ router
       }
       const user = await User.findOne({ where: { email } });
       if (user) {
-        return res
-          .status(400)
-          .json({
-            message: 'Пользователь с таким e-mail уже зарегистрирован!',
-            status: false,
-          });
+        return res.status(400).json({
+          message: 'Пользователь с таким e-mail уже зарегистрирован!',
+          status: false,
+        });
       }
       const passwordBC = await bcrypt.hash(
         password,
-        Number(process.env.SALT_ROUNDS),
+        Number(process.env.SALT_ROUNDS)
       );
       const newUser = await User.create({
         name,
