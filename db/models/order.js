@@ -18,6 +18,14 @@ module.exports = (sequelize, DataTypes) => {
         include: [Order.Product],
       });
     }
+
+    static listWithOrders(status) {
+      return Order.findAll({
+        where: { status },
+        order: [['createdAt', 'DESC']],
+        include: [Order.Product],
+      });
+    }
   }
 
   Order.init(

@@ -1,21 +1,15 @@
+/* eslint-disable react/prop-types */
 const React = require('react');
-const Layout = require('./Layout');
 const ProductPage = require('./ProductPage');
 
-module.exports = function Allproducts({ products, orders}) {
-
+module.exports = function Allproducts({ orders, user }) {
   return (
-
     <div className="products-container">
-      {products.map((product) => (
-        <ProductPage
-          product={product}
-          // courierProduct={courierProduct}
-          // user={user}
-          // key={product.id}
-        />
+      {orders.map((order) => (
+        <div>
+          <ProductPage order={order} user={user} key={order.id} />
+        </div>
       ))}
     </div>
-  
   );
 };
