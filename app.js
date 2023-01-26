@@ -1,25 +1,24 @@
 require('@babel/register');
 require('dotenv').config();
-const path = require("path");
-
+const path = require('path');
 const express = require('express');
 const db = require('./db/models');
 const config = require('./config/config');
 
 const mainRoute = require('./routes/mainRoute');
-const regRoute = require('./routes/regRoute')
-const logoutRoute = require('./routes/logoutRoute')
-const authRoute = require('./routes/authRoute')
+const regRoute = require('./routes/regRoute');
+const logoutRoute = require('./routes/logoutRoute');
+const authRoute = require('./routes/authRoute');
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 config(app);
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainRoute);
-app.use('/reg', regRoute)
-app.use('/logout', logoutRoute)
-app.use('/auth', authRoute)
+app.use('/reg', regRoute);
+app.use('/logout', logoutRoute);
+app.use('/auth', authRoute);
 
 app
   .listen(PORT)
