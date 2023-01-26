@@ -1,14 +1,26 @@
-const React = require("react");
-const Layout = require("./Layout");
 
-module.exports = function HomePage({ title, name }) {
-  return name ? (
-    <Layout title={title} name={name}>
-        <h1>Main page</h1>
-    </Layout>
-) : (
-    <Layout title={title} name={name}>
-        <h1>Main page</h1>
-    </Layout>
-)
+const React = require('react');
+const Layout = require('./Layout');
+
+const React = require('react');
+const Layout = require('./Layout');
+const AllProducts = require('./AllProducts');
+
+
+module.exports = function Main({
+  title, allProducts, user, courier,
+}) {
+  return (
+    <div>
+      <Layout title={title}>
+        <div>
+          <AllProducts
+            user={user}
+            courier={courier}
+            allProducts={allProducts}
+          />
+        </div>
+      </Layout>
+    </div>
+  );
 };
