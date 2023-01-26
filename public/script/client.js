@@ -107,8 +107,7 @@ function init() {
   // Если вы хотите задать неизменяемую точку "откуда", раскомментируйте код ниже.
   routePanelControl.routePanel.state.set({
     fromEnabled: false,
-    from: 'Москва',
-    to: 'Санкт-Петербург',
+    from: 'Москва'
   });
 
   myMap.controls.add(routePanelControl).add(zoomControl);
