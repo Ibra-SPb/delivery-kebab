@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/prop-types */
 const React = require('react');
 
 // eslint-disable-next-line react/prop-types
