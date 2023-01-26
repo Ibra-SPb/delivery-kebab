@@ -1,13 +1,19 @@
 const React = require('react');
 const Navbar = require('./Navbar');
 
-module.exports = function Layout({ children, title }) {
+module.exports = function Layout({ children, title, name }) {
   return (
     <html lang="ru">
       <head>
         <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Type" content="text/html" charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          src="https://api-maps.yandex.ru/2.1/?apikey=c6c4d0f7-b56b-47a0-8035-fdacf14b23b2&lang=ru_RU"
+          type="text/javascript"
+        />
+        <script src="/deliveryCalculator.js" type="text/html" />
+        <link rel="stylesheet" href="/Styles/style.css" />
         <title>{title}</title>
         <link rel="icon" href="images/favicon/favicon.ico" type="image/ico" />
         <link
@@ -24,7 +30,7 @@ module.exports = function Layout({ children, title }) {
         <script src="/script/client.js" defer />
       </head>
       <body>
-        <Navbar />
+        <Navbar name={name}/>
         <div>{children}</div>
       </body>
     </html>
