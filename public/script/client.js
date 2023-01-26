@@ -44,8 +44,9 @@ logForm.addEventListener('submit', async (e) => {
         password: password.value,
       }),
   })
+  
   const data = await res.json();
-
+  console.log(data)
   if (!data.status)  {
     const errorBlock = document.querySelector('.errorBlock')
     errorBlock.innerHTML = data.message;
