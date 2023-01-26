@@ -30,9 +30,8 @@ module.exports = {
       role: {
         type: Sequelize.TEXT,
       },
-      adress: {
+      address: {
         type: Sequelize.TEXT,
-        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -21,17 +21,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      discontPrice: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      status: {
-        type: Sequelize.TEXT,
-      },
-      adress: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
