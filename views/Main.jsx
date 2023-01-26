@@ -1,23 +1,28 @@
+/* eslint-disable react/prop-types */
 const React = require('react');
 const Layout = require('./Layout');
-const AllProducts = require('./AllProducts');
+const AllOrders = require('./AllOrders');
 
-
-module.exports = function Main({
-  title, products, user, orders
-}) {
+module.exports = function Main({ title, allOrders, manyProducts, user }) {
   return (
-    <div>
-      <Layout title={title} user={user}>
+    <Layout title={title} user={user}>
+      {user && user.role === 'customer' ? (
         <div>
-          {/* {orders.map((order) => <span key={order.id}>{order.product.title}</span>)} */}
-          <AllProducts
+          <AllOrders
             user={user}
-             products={products}
-             orders={orders}
+            allOrders={allOrders}
+            manyProducts={manyProducts}
           />
         </div>
-      </Layout>
-    </div>
+      ) : (
+        <div>
+          <AllOrders
+            user={user}
+            allOrders={allOrders}
+            manyProducts={manyProducts}
+          />
+        </div>
+      )}
+    </Layout>
   );
 };
