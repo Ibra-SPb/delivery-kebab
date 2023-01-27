@@ -159,6 +159,24 @@ const addOrder = document.querySelector('.addForm')
 if (addOrder) {
   addOrder.addEventListener('submit', async (e) => {
     e.preventDefault()
+    const { title, address, discount, method, action } = e.target
+    console.log(title.value, address.value, discount.value, method, action)
+    const res = await fetch(action, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: title.value,
+        address: address.value,
+        discount: discount.value,
+      })
+    })
+    const data = await res.json()
+    // console.log(data.message)
+    if (data.status) {
+      const status = document.querySelector('.status');
+      console.log(status)
+      status.innerHTML = data.message;
+    }
   })
 }
 

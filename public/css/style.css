@@ -146,42 +146,43 @@ input:focus {
     width: 40%;
   } */
 
-.addForm {
-  background: #fff;
-  border: 1px solid #0ec645;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-  width: 100%;
-  margin: auto;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
+  .addForm {
+    background: #fff;
+    border: 1px solid #0ec645;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    width: 100%;
+    margin: auto;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
 }
 
-.ord {
-  border: 1px solid #0ec645;
-  border-radius: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: auto;
-  background: #fff;
-  padding: 2em;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-}
+  .ord {
+    border: 1px solid #0ec645;
+    border-radius: 5px;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:auto;
+    background: #fff;
+    padding: 2em;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+  }
 
-.orderImg {
-  width: 30%;
-}
+  .orderImg  {
+    width:30%
+  }
 
-.orderImg img {
-  width: 100%;
-}
+  .orderImg img {
+    width: 100%
+  }
 
-.total {
-  color: #ff4500;
-  font-weight: bold;
-}
+  .status  {
+    color: blue;
+    font-weight: bold;
+  }
+
