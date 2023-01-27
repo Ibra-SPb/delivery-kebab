@@ -8,7 +8,6 @@ module.exports = function ProductPage({ order, user }) {
       <span>{order.product.title}</span>
       <p>{order.product.price}</p>
       <p>{order.discount}</p>
-      <p>{order.status}</p>
       <address>{order.address}</address>
       {user && user.role === 'customer' && (
         <button className="buy-button" type="button">
