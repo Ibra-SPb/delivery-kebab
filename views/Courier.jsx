@@ -1,16 +1,9 @@
 const React = require('react');
 
-module.exports = function Courier({
-  title, user, products, orders,
-}) {
+module.exports = function Courier({ title, user, products, orders }) {
   return (
     <div className="container">
-      <h1>
-        Здравствуй,
-        {' '}
-        {user.name}
-        ! Твои заказы
-      </h1>
+      <h1>Здравствуй, {user.name}! Твои заказы</h1>
       <div className="container-courier">
         <div className="forma">
           <form className="addForm" action="/" method="post">
@@ -27,8 +20,10 @@ module.exports = function Courier({
                 name="address"
                 placeholder="Где вы находитесь"
                 type="text"
+                id="Goo"
               />
             </label>
+            <div id="map" style={{ width: '600px', height: '400px' }} />
             <label>
               <input
                 name="discount"
@@ -61,39 +56,20 @@ module.exports = function Courier({
                   </div>
                   <div>
                     <p>
-                      {order.id}
-                      .
-                      {' '}
-                      {order.product.title}
+                      {order.id}. {order.product.title}
                     </p>
                   </div>
                   <div>
-                    <p>
-                      Имя:
-                      {' '}
-                      {order.user.name}
-                    </p>
+                    <p>Имя: {order.user.name}</p>
                   </div>
                   <div>
-                    <p>
-                      Email:
-                      {' '}
-                      {order.user.email}
-                    </p>
+                    <p>Email: {order.user.email}</p>
                   </div>
                   <div>
-                    <p>
-                      Телефон:
-                      {' '}
-                      {order.user.phone}
-                    </p>
+                    <p>Телефон: {order.user.phone}</p>
                   </div>
                   <div>
-                    <p>
-                      Адрес:
-                      {' '}
-                      {order.user.address}
-                    </p>
+                    <p>Адрес: {order.user.address}</p>
                   </div>
                   <a href="#" className="btn btn-primary">
                     Выполнить заказ

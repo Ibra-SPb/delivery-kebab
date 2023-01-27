@@ -10,9 +10,10 @@ router.get('/', async (req, res) => {
     const user = await User.findByPk(Number(userId), { raw: true });
     const products = await Product.findAll();
     const orders = await Order.listWithProduct(userId);
+    const allOrders = await Order.listProduct();
 
     res.renderComponent(Main, {
-      title: 'Главная', user, products, orders,
+      title: 'Главная', user, products, orders, allOrders,
     });
   } else {
     const status = 'create';
@@ -33,7 +34,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log(req.body)
-})
+  console.log(req.body);
+});
 
 module.exports = router;
