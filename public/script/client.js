@@ -1,10 +1,11 @@
-
-//registration
-const regForm = document.querySelector('.regForm')
+// registration
+const regForm = document.querySelector('.regForm');
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
-    e.preventDefault()
-    const { name, email, phone, role, address, password, action, method } = e.target;
+    e.preventDefault();
+    const {
+      name, email, phone, role, address, password, action, method,
+    } = e.target;
     const res = await fetch(action, {
       method,
       headers: { 'Content-type': 'application/json' },
@@ -16,9 +17,9 @@ if (regForm) {
         address: address.value,
         password: password.value,
       }),
-    })
-    const data = await res.json();
 
+    });
+    const data = await res.json();
     if (!data.status) {
       const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
@@ -26,15 +27,18 @@ if (regForm) {
     } else {
       window.location.assign('/');
     }
-  })
+  });
 }
 
-//auth
-const logForm = document.querySelector('.logForm')
+// auth
+const logForm = document.querySelector('.logForm');
+
 if (logForm) {
   logForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const { email, password, action, method } = e.target;
+    const {
+      email, password, action, method,
+    } = e.target;
     const res = await fetch(action, {
       method,
       headers: { 'Content-type': 'application/json' },
@@ -42,21 +46,18 @@ if (logForm) {
         email: email.value,
         password: password.value,
       }),
-    })
 
+    });
     const data = await res.json();
-    console.log(data)
+
     if (!data.status) {
-      const errorBlock = document.querySelector('.errorBlock')
+      const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
     } else {
-      window.location.assign('/')
+      window.location.assign('/');
     }
-  })
+  });
 }
-
-
-
 
 /* eslint-disable comma-dangle */
 /* eslint-disable operator-linebreak */
@@ -69,13 +70,15 @@ if (logForm) {
 //     zoom: 7,
 //   });
 // }
-let zaebal;
-ymaps.ready(init);
+
+let from;
+let to;
+// ymaps.ready(init);
 function init() {
   // Стоимость за километр.
-  const DELIVERY_TARIFF = 20;
+  // const DELIVERY_TARIFF = 20;
   // Минимальная стоимость.
-  const MINIMUM_COST = 500;
+  // const MINIMUM_COST = 500;
   const myMap = new ymaps.Map('map', {
     center: [60.906882, 30.067233],
     zoom: 9,
@@ -107,7 +110,9 @@ function init() {
   // Если вы хотите задать неизменяемую точку "откуда", раскомментируйте код ниже.
   routePanelControl.routePanel.state.set({
     fromEnabled: false,
-    from: 'Москва'
+
+    from,
+    to,
   });
 
   myMap.controls.add(routePanelControl).add(zoomControl);
@@ -124,11 +129,10 @@ function init() {
         // Получим протяженность маршрута.
         const length = route.getActiveRoute().properties.get('distance');
         // Вычислим стоимость доставки.
-        const price = calculate(Math.round(length.value / 1000));
+        // const price = calculate(Math.round(length.value / 1000));
         // Создадим макет содержимого балуна маршрута.
         const balloonContentLayout = ymaps.templateLayoutFactory.createClass(
-          `<span>Расстояние: ${length.text}.</span><br/>` +
-          `<span style="font-weight: bold; font-style: italic">Стоимость доставки: ${price} р.</span>`
+          `<span>Расстояние: ${length.text}.</span><br/>`
         );
         // Зададим этот макет для содержимого балуна.
         route.options.set('routeBalloonContentLayout', balloonContentLayout);
@@ -138,13 +142,13 @@ function init() {
     });
   });
   // Функция, вычисляющая стоимость доставки.
-  function calculate(routeLength) {
-    zaebal = Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
-    console.log(zaebal);
-    return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
-  }
-  //   const huy = document.querySelector('#id_167466149346774689320');
+  // function calculate(routeLength) {
+  //   zaebal = Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
+  //   console.log(zaebal);
+  //   return Math.max(routeLength * DELIVERY_TARIFF, MINIMUM_COST);
+  // }
 }
+
 
 //addOrder
 const addOrder = document.querySelector('.addForm')
@@ -153,3 +157,11 @@ if (addOrder) {
     e.preventDefault()
   })
 }
+
+// id="tryApi"
+document.querySelector('#tryApi').addEventListener('change', (event) => {
+  from = event.target.value;
+  ymaps.ready(init);
+  console.log(event.target.value);
+});
+

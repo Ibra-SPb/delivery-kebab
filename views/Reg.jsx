@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 const React = require('react');
 const Layout = require('./Layout');
 
@@ -32,7 +33,7 @@ function Reg({ title }) {
                 name="address"
                 type="text"
                 placeholder="Введите адрес"
-                id="Goo"
+                id="tryApi"
               />
             </label>
             <label>
@@ -47,8 +48,10 @@ function Reg({ title }) {
             <button type="submit">Зарегистрироваться</button>
           </form>
         </div>
+
         <div className="errorBlock" />
       </div>
+      <div id="map" style={{ width: '600px', height: '400px' }} />
     </Layout>
   );
 }
