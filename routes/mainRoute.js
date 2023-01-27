@@ -34,6 +34,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log(req.body)
+  const { title, address, discount } = req.body
+  const product = await Product.findOne({ where: { title } })
+  console.log(product)
+  // const orderNew = await Order.create(userId: req.session.userId,)
 })
 
 module.exports = router;

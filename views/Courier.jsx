@@ -23,7 +23,6 @@ module.exports = function Courier({
           {
           orders.filter((order) => order.userId === user.id).map((order) => (
              <div >
-              {console.log(order)}
               {/* <div className='ord'>
               <div><p>{order.product.title}</p></div>
               <div className='orderImg'><img src={order.product.image} alt="product_pic" /></div>

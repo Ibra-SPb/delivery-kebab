@@ -154,7 +154,7 @@ function init() {
 const addOrder = document.querySelector('.addForm')
 if (addOrder) {
   addOrder.addEventListener('submit', async (e) => {
-    e.preventDefault()
+    // e.preventDefault()
   })
 }
 
