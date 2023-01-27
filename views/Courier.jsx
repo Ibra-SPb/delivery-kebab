@@ -38,13 +38,14 @@ module.exports = function Courier({
             </label>
             <button type="submit">Добавить</button>
           </form>
+          <div className='.errorBlock'></div>
         </div>
         <div clasName="order">
           {orders
             .filter((order) => order.userId === user.id)
             .map((order) => (
               <div>
-                {console.log(order)}
+                {/* {console.log(order)} */}
                 {/* <div className='ord'>
               <div><p>{order.product.title}</p></div>
               <div className='orderImg'><img src={order.product.image} alt="product_pic" /></div>
