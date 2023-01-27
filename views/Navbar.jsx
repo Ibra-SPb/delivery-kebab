@@ -34,6 +34,9 @@ module.exports = function Navbar({ user }) {
       ) : (
         <div className="navbar">
           <div className="logo">
+            <div className="img-logo">
+              <img src="https://play-lh.googleusercontent.com/m6-gFunvj7aQD5fdv8EdJZBN5M4REIobTaPZPYS0K5Td7CNYnazN7fOKiPwwaY3hJw" />
+            </div>
             <div>
               <a className="navbar-brand" href="/">
                 Деливери Кебаб

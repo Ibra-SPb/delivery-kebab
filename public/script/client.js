@@ -145,3 +145,11 @@ function init() {
   }
   //   const huy = document.querySelector('#id_167466149346774689320');
 }
+
+//addOrder
+const addOrder = document.querySelector('.addForm')
+if (addOrder) {
+  addOrder.addEventListener('submit', async (e) => {
+    e.preventDefault()
+  })
+}
