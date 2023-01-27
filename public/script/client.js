@@ -1,16 +1,11 @@
-//registration
+// registration
 const regForm = document.querySelector('.regForm');
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
-
     e.preventDefault();
-    console.log(e.target);
-    const { name, email, phone, role, address, password, action, method } =
-      e.target;
-
-    e.preventDefault()
-    const { name, email, phone, role, address, password, action, method } = e.target;
-
+    const {
+      name, email, phone, role, address, password, action, method,
+    } = e.target;
     const res = await fetch(action, {
       method,
       headers: { 'Content-type': 'application/json' },
@@ -24,11 +19,7 @@ if (regForm) {
       }),
 
     });
-
-    })
-
     const data = await res.json();
-
     if (!data.status) {
       const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
@@ -36,23 +27,18 @@ if (regForm) {
     } else {
       window.location.assign('/');
     }
-
   });
 }
 
-//auth
+// auth
 const logForm = document.querySelector('.logForm');
-
-  })
-}
-
-//auth
-const logForm = document.querySelector('.logForm')
 
 if (logForm) {
   logForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const { email, password, action, method } = e.target;
+    const {
+      email, password, action, method,
+    } = e.target;
     const res = await fetch(action, {
       method,
       headers: { 'Content-type': 'application/json' },
@@ -71,19 +57,6 @@ if (logForm) {
       window.location.assign('/');
     }
   });
-
-    })
-
-    const data = await res.json();
-    console.log(data)
-    if (!data.status) {
-      const errorBlock = document.querySelector('.errorBlock')
-      errorBlock.innerHTML = data.message;
-    } else {
-      window.location.assign('/')
-    }
-  })
-
 }
 
 /* eslint-disable comma-dangle */
@@ -140,9 +113,6 @@ function init() {
 
     from,
     to,
-
-    from: 'Москва'
-
   });
 
   myMap.controls.add(routePanelControl).add(zoomControl);
@@ -162,11 +132,7 @@ function init() {
         // const price = calculate(Math.round(length.value / 1000));
         // Создадим макет содержимого балуна маршрута.
         const balloonContentLayout = ymaps.templateLayoutFactory.createClass(
-<
           `<span>Расстояние: ${length.text}.</span><br/>`
-
-          `<span>Расстояние: ${length.text}.</span><br/>` +
-
         );
         // Зададим этот макет для содержимого балуна.
         route.options.set('routeBalloonContentLayout', balloonContentLayout);
