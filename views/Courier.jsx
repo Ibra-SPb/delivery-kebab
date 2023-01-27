@@ -35,7 +35,7 @@ module.exports = function Courier({ title, user, products, orders }) {
             <button type="submit">Добавить</button>
           </form>
         </div>
-        <div clasName="order">
+        <div className="order">
           {orders
             .filter((order) => order.userId === user.id && order.status === 'ordered')
             .map((order) => (
@@ -51,7 +51,7 @@ module.exports = function Courier({ title, user, products, orders }) {
               <a href="#" class="btn btn-primary">Выполнить заказ</a>
               </div> */}
 
-                <div className="ord">
+                <div className='ord'>
                   <div>
                     <p>Новый заказ</p>
                   </div>
@@ -72,8 +72,8 @@ module.exports = function Courier({ title, user, products, orders }) {
                   <div>
                     <p>Адрес: {order.user.address}</p>
                   </div>
-                  <a href="#" className="btn btn-primary">
-                    Выполнить заказ
+                  <a href={`/${order.id}`} className='btn btn-primary'>
+                    <button type='button' data-id={order.id} className='btn btn-primary'>Выполнить заказ</button>
                   </a>
                 </div>
               </div>

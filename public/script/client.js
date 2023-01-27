@@ -180,6 +180,22 @@ if (addOrder) {
   })
 }
 
+// closedOrder
+const closeOrder = document.querySelector(`.order`)
+if (closeOrder) {
+  closeOrder.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const res = await fetch(`/${e.target.dataset.id}`, {
+      method: 'put',
+    })
+    const data = await res.json()
+    console.log(data)
+    if (data.message) {
+      e.target.closest('.ord').remove()
+    }
+  })
+}
+
 // id="tryApi"
 
 one.addEventListener('change', (event) => {

@@ -49,5 +49,19 @@ router.post('/', async (req, res) => {
   }
 })
 
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  const order = await Order.update(
+    { status: 'closed' },
+    {
+      where: { id },
+      returning: true
+    }
+  )
+  if (order) {
+    res.json({ message: 'success' })
+  }
+})
+
 
 module.exports = router;
