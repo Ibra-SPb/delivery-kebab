@@ -26,7 +26,7 @@ module.exports = function ProductPage({ order, user }) {
         Местоположение: <br /> {order.address}
       </address>
       {user && user.role === "customer" && (
-        <button className="buy-button" type="button">
+        <button className="buy-button" type="button" data-id={order.id}>
           Выкупить
         </button>
       )}

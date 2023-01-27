@@ -10,9 +10,11 @@ module.exports = function Main({ title, user, products, orders, allOrders }) {
     <Layout title={title} user={user}>
       {user && user.role === "customer" && (
         <div>
+
           {orders.map((order) => (
             <span key={order.id}>{order.product.title}</span>
           ))}
+
 
           <AllProducts
             user={user}
