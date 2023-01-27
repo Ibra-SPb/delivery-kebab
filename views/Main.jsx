@@ -5,7 +5,7 @@ const AllProducts = require('./AllProducts');
 const Courier = require('./Courier');
 
 module.exports = function Main({
-  title, user, products, orders,
+  title, user, products, orders, allOrders,
 }) {
   // console.log(user.role);
   return (
@@ -13,7 +13,7 @@ module.exports = function Main({
       {user && user.role === 'customer' ? (
         <div>
           {/* {orders.map((order) => <span key={order.id}>{order.product.title}</span>)} */}
-          <AllProducts user={user} products={products} orders={orders} />
+          <AllProducts user={user} products={products} orders={orders} allOrders={allOrders} />
         </div>
       ) : (
         <div>
