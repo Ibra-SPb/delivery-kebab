@@ -1,14 +1,21 @@
 const React = require('react');
 
-module.exports = function Courier({ title, user, products, orders }) {
+module.exports = function Courier({
+  title, user, products, orders,
+}) {
   return (
     <div className="container">
-      <h1>Здравствуй, {user.name}! Твои заказы</h1>
+      <h1>
+        Здравствуй,
+        {' '}
+        {user.name}
+        ! Твои заказы
+      </h1>
       <div className="container-courier">
         <div className="forma">
           <form className="addForm" action="/" method="post">
             <label>
-            <div className='status'></div>
+              <div className="status" />
               Добавь кебаб:
               <select name="title">
                 {products.map((product) => (
@@ -24,7 +31,7 @@ module.exports = function Courier({ title, user, products, orders }) {
                 id="Goo"
               />
             </label>
-            <div id="map" style={{ width: '600px', height: '400px' }} />
+            <div id="map" style={{ width: '400px', height: '400px' }} />
             <label>
               <input
                 name="discount"
@@ -37,7 +44,9 @@ module.exports = function Courier({ title, user, products, orders }) {
         </div>
         <div className="order">
           {orders
-            .filter((order) => order.userId === user.id && order.status === 'ordered')
+            .filter(
+              (order) => order.userId === user.id && order.status === 'ordered',
+            )
             .map((order) => (
               <div>
                 {/* {console.log(order)} */}
@@ -51,29 +60,54 @@ module.exports = function Courier({ title, user, products, orders }) {
               <a href="#" class="btn btn-primary">Выполнить заказ</a>
               </div> */}
 
-                <div className='ord'>
+                <div className="ord">
                   <div>
                     <p>Новый заказ</p>
                   </div>
                   <div>
                     <p>
-                      {order.id}. {order.product.title}
+                      {order.id}
+                      .
+                      {' '}
+                      {order.product.title}
                     </p>
                   </div>
                   <div>
-                    <p>Имя: {order.user.name}</p>
+                    <p>
+                      Имя:
+                      {' '}
+                      {order.user.name}
+                    </p>
                   </div>
                   <div>
-                    <p>Email: {order.user.email}</p>
+                    <p>
+                      Email:
+                      {' '}
+                      {order.user.email}
+                    </p>
                   </div>
                   <div>
-                    <p>Телефон: {order.user.phone}</p>
+                    <p>
+                      Телефон:
+                      {' '}
+                      {order.user.phone}
+                    </p>
                   </div>
                   <div>
-                    <p>Адрес: {order.user.address}</p>
+                    <p>
+                      Адрес:
+                      {' '}
+                      {order.user.address}
+                    </p>
                   </div>
-                  <a href={`/${order.id}`} className='btn btn-primary'>
-                    <button type='button' data-id={order.id} className='btn btn-primary'>Выполнить заказ</button>
+                  <a href={`/${order.id}`} className="btn btn-primary">
+                    <button
+                      type="button"
+                      data-id={order.id}
+                      className="btn btn-primary"
+                    >
+                      Выполнить заказ
+                    </button>
                   </a>
                 </div>
               </div>

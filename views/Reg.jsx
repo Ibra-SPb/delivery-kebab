@@ -35,7 +35,7 @@ function Reg({ title }) {
                 placeholder="Введите адрес"
                 id="tryApi"
               />
-              <div id="map" style={{ width: '600px', height: '400px' }} />
+              <div id="map" style={{ width: '400px', height: '400px' }} />
             </label>
             <label>
               Пароль:

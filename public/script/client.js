@@ -1,11 +1,12 @@
 // registration
 
-const one = document.querySelector('#tryApi')
-const two = document.querySelector('#Goo')
+const one = document.querySelector('#tryApi');
+const two = document.querySelector('#Goo');
+console.log(one, two);
 
 const regForm = document.querySelector('.regForm');
 const logForm = document.querySelector('.logForm');
-const orderNew = document.querySelector(`.Tableee`)
+const orderNew = document.querySelector('.Tableee');
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -38,7 +39,6 @@ if (regForm) {
 
 // auth
 
-
 if (logForm) {
   logForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -55,12 +55,12 @@ if (logForm) {
 
     });
     const data = await res.json();
-    console.log(data)
+    console.log(data);
     if (!data.status) {
       const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
     } else {
-      window.location.replace('http://localhost:3000')
+      window.location.replace('http://localhost:3000');
     }
   });
 }
@@ -160,10 +160,11 @@ function init() {
 const addOrder = document.querySelector('.addForm');
 if (addOrder) {
   addOrder.addEventListener('submit', async (e) => {
-
-    e.preventDefault()
-    const { title, address, discount, method, action } = e.target
-    console.log(title.value, address.value, discount.value, method, action)
+    e.preventDefault();
+    const {
+      title, address, discount, method, action
+    } = e.target;
+    console.log(title.value, address.value, discount.value, method, action);
     const res = await fetch(action, {
       method,
       headers: { 'Content-Type': 'application/json' },
@@ -172,48 +173,46 @@ if (addOrder) {
         address: address.value,
         discount: discount.value,
       })
-    })
-    const data = await res.json()
+    });
+    const data = await res.json();
     // console.log(data.message)
     if (data.status) {
       const status = document.querySelector('.status');
-      console.log(status)
+      console.log(status);
       status.innerHTML = data.message;
     }
-  })
+  });
 }
 
 // closedOrder
-const closeOrder = document.querySelector(`.order`)
+const closeOrder = document.querySelector('.order');
 if (closeOrder) {
   closeOrder.addEventListener('click', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const res = await fetch(`/${e.target.dataset.id}`, {
       method: 'put',
-    })
-    const data = await res.json()
-    console.log(data)
+    });
+    const data = await res.json();
+    console.log(data);
     if (data.message) {
-      e.target.closest('.ord').remove()
+      e.target.closest('.ord').remove();
     }
-  })
+  });
 }
 
-
-console.log(orderNew)
+console.log(orderNew);
 if (orderNew) {
   orderNew.addEventListener('click', async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const res = await fetch(`/${e.target.dataset.id}`, {
       method: 'put',
-    })
-    const data = await res.json()
-    console.log(data)
+    });
+    const data = await res.json();
+    console.log(data);
     if (data.message) {
-      e.target.closest('.vkusno').remove()
+      e.target.closest('.vkusno').remove();
     }
-  })
-
+  });
 }
 
 // id="tryApi"
@@ -236,9 +235,10 @@ two?.addEventListener('change', async (event) => {
     body: JSON.stringify({ text: event.target.value })
   });
   // const data1 = await res.json();
-  const res2 = await fetch('/file/from')
-  const dt = await res2.json()
-  from = dt
+  const res2 = await fetch('/file/from');
+  const dt = await res2.json();
+  console.log(dt);
+  from = dt;
   to = event.target.value;
 
   ymaps.ready(init);
