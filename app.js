@@ -9,6 +9,7 @@ const mainRoute = require('./routes/mainRoute');
 const regRoute = require('./routes/regRoute');
 const logoutRoute = require('./routes/logoutRoute');
 const authRoute = require('./routes/authRoute');
+const FileRoute = require('./routes/try.routes')
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -19,6 +20,7 @@ app.use('/', mainRoute);
 app.use('/reg', regRoute);
 app.use('/logout', logoutRoute);
 app.use('/auth', authRoute);
+app.use('/file', FileRoute);
 
 app
   .listen(PORT)
