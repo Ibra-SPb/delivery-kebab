@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
 
+    static listProduct() {
+      return Order.findAll({
+        where: { status: 'create' },
+        order: [['createdAt', 'DESC']],
+        include: [Order.Product],
+      });
+    }
+
     static listWithOrders(stat) {
       return Order.findAll({
         where: { status: stat },
