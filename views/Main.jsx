@@ -4,9 +4,7 @@ const Layout = require('./Layout');
 const AllProducts = require('./AllProducts');
 const Courier = require('./Courier');
 
-module.exports = function Main({
-  title, user, products, orders, allOrders,
-}) {
+module.exports = function Main({ title, user, products, orders, allOrders }) {
   // console.log(user.role);
   return (
     <Layout title={title} user={user}>
@@ -14,28 +12,33 @@ module.exports = function Main({
         <div>
           <div>Ты зарегался</div>
           {/* {orders.map((order) => <span key={order.id}>{order.product.title}</span>)} */}
-          {/* <AllProducts user={user} products={products} orders={orders} allOrders={allOrders} /> */}
+
+          <AllProducts
+            user={user}
+            products={products}
+            orders={orders}
+            allOrders={allOrders}
+          />
+
         </div>
-      )} 
+      )}
       {!user && (
         <div>
           <div>Зарегайся</div>
           {/* <AllProducts products={products} orders={orders} /> */}
         </div>
-      ) }
-      {user
-        && (user.role === 'courier')
-        && (
-          // прорисовка для курьера
-          <div>
-            <Courier
-              title={title}
-              user={user}
-              products={products}
-              orders={orders}
-            />
-          </div>
-        )}
+      )}
+      {user && user.role === 'courier' && (
+        // прорисовка для курьера
+        <div>
+          <Courier
+            title={title}
+            user={user}
+            products={products}
+            orders={orders}
+          />
+        </div>
+      )}
     </Layout>
   );
 };

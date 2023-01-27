@@ -4,6 +4,12 @@
   font-family: "Open Sans", sans-serif;
   color: #0c1206;
 }
+.orderTable {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .vkusno {
   font-family: "Open Sans", sans-serif;
   color: #0c1206;
@@ -16,7 +22,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 400px;
+  /* max-width: 400px; */
+  width: 22%;
   height: 600px;
   opacity: 0.8;
 }
@@ -35,4 +42,7 @@ button {
 }
 button:hover {
   background-color: rgb(223, 114, 18);
+}
+.title {
+  margin: 20px;
 }
