@@ -6,8 +6,12 @@ module.exports = function Layout({ children, title, user }) {
     <html lang="ru">
       <head>
         <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Type" content="text/html" charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          src="https://api-maps.yandex.ru/2.1/?apikey=a1436f95-2454-4c6f-8c2e-740f560c4e54&lang=ru_RU"
+          type="text/javascript"
+        />
         <title>{title}</title>
         <link rel="icon" href="images/favicon/favicon.ico" type="image/ico" />
         <link
