@@ -4,7 +4,6 @@ const React = require("react");
 module.exports = function ProductPage({ order, user }) {
   return (
     <div id={order.product.id} className="vkusno">
-      <br />
       <img
         style={{ width: "300px", borderRadius: "10px" }}
         src={order.product.image}

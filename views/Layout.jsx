@@ -1,5 +1,5 @@
-const React = require('react');
-const Navbar = require('./Navbar');
+const React = require("react");
+const Navbar = require("./Navbar");
 
 module.exports = function Layout({ children, title, user }) {
   return (
@@ -26,9 +26,10 @@ module.exports = function Layout({ children, title, user }) {
           crossOrigin="anonymous"
         />
         <link href="/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/css/order.css" />
         <script src="/script/client.js" defer />
       </head>
-      <body>
+      <body className="main">
         <Navbar user={user} />
         <div>{children}</div>
       </body>

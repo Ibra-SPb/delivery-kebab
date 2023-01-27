@@ -1,9 +1,11 @@
 // registration
 
-const one = document.querySelector('#tryApi');
-const two = document.querySelector('#Goo');
-console.log(two, one);
+const one = document.querySelector('#tryApi')
+const two = document.querySelector('#Goo')
+
 const regForm = document.querySelector('.regForm');
+const logForm = document.querySelector('.logForm');
+const orderNew = document.querySelector(`.Tableee`)
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -29,13 +31,13 @@ if (regForm) {
       errorBlock.innerHTML = data.message;
       //   errorBlock.style.visibility = 'visible';
     } else {
-      window.location.assign('/');
+      window.location.replace('http://localhost:3000');
     }
   });
 }
 
 // auth
-const logForm = document.querySelector('.logForm');
+
 
 if (logForm) {
   logForm.addEventListener('submit', async (e) => {
@@ -53,12 +55,12 @@ if (logForm) {
 
     });
     const data = await res.json();
-
+    console.log(data)
     if (!data.status) {
       const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
     } else {
-      window.location.assign('/');
+      window.location.replace('http://localhost:3000')
     }
   });
 }
@@ -158,8 +160,60 @@ function init() {
 const addOrder = document.querySelector('.addForm');
 if (addOrder) {
   addOrder.addEventListener('submit', async (e) => {
-    e.preventDefault();
-  });
+
+    e.preventDefault()
+    const { title, address, discount, method, action } = e.target
+    console.log(title.value, address.value, discount.value, method, action)
+    const res = await fetch(action, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: title.value,
+        address: address.value,
+        discount: discount.value,
+      })
+    })
+    const data = await res.json()
+    // console.log(data.message)
+    if (data.status) {
+      const status = document.querySelector('.status');
+      console.log(status)
+      status.innerHTML = data.message;
+    }
+  })
+}
+
+// closedOrder
+const closeOrder = document.querySelector(`.order`)
+if (closeOrder) {
+  closeOrder.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const res = await fetch(`/${e.target.dataset.id}`, {
+      method: 'put',
+    })
+    const data = await res.json()
+    console.log(data)
+    if (data.message) {
+      e.target.closest('.ord').remove()
+    }
+  })
+}
+
+
+console.log(orderNew)
+if (orderNew) {
+  orderNew.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const res = await fetch(`/${e.target.dataset.id}`, {
+      method: 'put',
+    })
+    const data = await res.json()
+    console.log(data)
+    if (data.message) {
+      e.target.closest('.vkusno').remove()
+    }
+  })
+
 }
 
 // id="tryApi"
