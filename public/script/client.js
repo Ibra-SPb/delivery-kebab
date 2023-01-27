@@ -1,4 +1,7 @@
 // registration
+const one = document.querySelector('#tryApi')
+const two = document.querySelector('#Goo')
+console.log(two)
 const regForm = document.querySelector('.regForm');
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
@@ -73,6 +76,7 @@ if (logForm) {
 
 let from;
 let to;
+// ymaps.ready(init);
 // ymaps.ready(init);
 function init() {
   // Стоимость за километр.
@@ -159,8 +163,14 @@ if (addOrder) {
 }
 
 // id="tryApi"
-document.querySelector('#tryApi').addEventListener('change', (event) => {
+
+one.addEventListener('change', (event) => {
+  ymaps.ready(init);
   from = event.target.value;
+  console.log(event.target.value);
+});
+two.addEventListener('change', (event) => {
+  to = event.target.value;
   ymaps.ready(init);
   console.log(event.target.value);
 });

@@ -35,6 +35,7 @@ function Reg({ title }) {
                 placeholder="Введите адрес"
                 id="tryApi"
               />
+              <div id="map" style={{ width: '600px', height: '400px' }} />
             </label>
             <label>
               Пароль:
@@ -51,7 +52,6 @@ function Reg({ title }) {
 
         <div className="errorBlock" />
       </div>
-      <div id="map" style={{ width: '600px', height: '400px' }} />
     </Layout>
   );
 }
