@@ -29,9 +29,9 @@ module.exports = function Layout({ children, title, user }) {
         <link rel="stylesheet" href="/css/order.css" />
         <script src="/script/client.js" defer />
       </head>
-      <body>
+      <body className="main">
         <Navbar user={user} />
-        <div className="main">{children}</div>
+        <div>{children}</div>
       </body>
     </html>
   );
