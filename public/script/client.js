@@ -149,9 +149,19 @@ function init() {
   // }
 }
 
+
+//addOrder
+const addOrder = document.querySelector('.addForm')
+if (addOrder) {
+  addOrder.addEventListener('submit', async (e) => {
+    e.preventDefault()
+  })
+}
+
 // id="tryApi"
 document.querySelector('#tryApi').addEventListener('change', (event) => {
   from = event.target.value;
   ymaps.ready(init);
   console.log(event.target.value);
 });
+

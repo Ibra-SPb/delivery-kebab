@@ -32,4 +32,8 @@ router.get('/', async (req, res) => {
   // res.renderComponent(Main, {title: 'Main page', name, role})
 });
 
+router.post('/', async (req, res) => {
+  console.log(req.body)
+})
+
 module.exports = router;
