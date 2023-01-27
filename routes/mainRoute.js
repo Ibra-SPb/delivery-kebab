@@ -34,15 +34,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { title, address, discount } = req.body
+  console.log(title, address, discount)
   try {
     if (title && address && discount) {
       const product = await Product.findOne({ where: { title } })
       const orderNew = await Order.create({ userId: req.session.userId, productId: product.id, address, status: 'create', discount, phone: '89999999999' })
-      res.json({ message: 'success', status: true })
+      console.log(orderNew)
+      res.status(201).json({ message: 'Кебаб добавлен!', status: true })
     }
   }
   catch (e) {
-    res.json({ message: e.message });
+    res.status(404).json({ message: e.message });
   }
 })
 

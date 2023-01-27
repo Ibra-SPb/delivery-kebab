@@ -177,7 +177,9 @@ select {
     width: 100%
   }
 
-  .total  {
-    color: #ff4500;
+  .status  {
+    color: blue;
     font-weight: bold;
   }
+
+  

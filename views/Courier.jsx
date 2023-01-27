@@ -8,6 +8,7 @@ module.exports = function Courier({ title, user, products, orders }) {
         <div className="forma">
           <form className="addForm" action="/" method="post">
             <label>
+            <div className='status'></div>
               Добавь кебаб:
               <select name="title">
                 {products.map((product) => (
@@ -33,11 +34,10 @@ module.exports = function Courier({ title, user, products, orders }) {
             </label>
             <button type="submit">Добавить</button>
           </form>
-          <div className='.errorBlock'></div>
         </div>
         <div clasName="order">
           {orders
-            .filter((order) => order.userId === user.id)
+            .filter((order) => order.userId === user.id && order.status === 'ordered')
             .map((order) => (
               <div>
                 {/* {console.log(order)} */}
