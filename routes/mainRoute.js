@@ -1,15 +1,35 @@
-const router = require('express').Router()
-const Main = require('../views/Main')
-const { User } = require('../db/models')
+const router = require('express').Router();
+const Main = require('../views/Main');
 
+const { User, Product, Order } = require('../db/models');
+
+// GET /
 router.get('/', async (req, res) => {
-    let user;
-    let name;
-    if (req.session.user_id) {
-      user = await User.findOne({ where: req.session.user_id });
-      name = user.name;
-    }
-    res.renderComponent(Main, { title: 'Главная', name });
-  })
+  if (req.session.userId) {
+    const { userId } = req.session;
+    const user = await User.findByPk(Number(userId), { raw: true });
+    const products = await Product.findAll();
+    const orders = await Order.listWithProduct(userId);
 
- module.exports = router;
+    res.renderComponent(Main, {
+      title: 'Главная', user, products, orders,
+    });
+  } else {
+    const status = 'create';
+    const products = await Product.findAll();
+    const orders = await Order.listWithOrders(status);
+    res.renderComponent(Main, {
+      title: 'Главная', products, orders,
+    });
+  }
+  // let name;
+  // let role;
+  // if(req.session.user_id) {
+  // let user = await User.findOne({where: req.session.user_id})
+  //   name = user.login;
+  //   role = user.role;
+  // }
+  // res.renderComponent(Main, {title: 'Main page', name, role})
+});
+
+module.exports = router;

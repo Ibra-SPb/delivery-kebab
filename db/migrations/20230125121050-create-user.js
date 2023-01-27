@@ -31,7 +31,6 @@ module.exports = {
       },
       address: {
         type: Sequelize.TEXT,
-        allowNull: false,
       },
       createdAt: {
         allowNull: false,

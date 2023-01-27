@@ -4,9 +4,17 @@ const Layout = require('./Layout');
 function Reg({ title }) {
   return (
     <Layout title={title}>
+
       <div>
         <div>
           <h1>Регистрация</h1>
+
+      <div className="forma">
+        <div>
+          <h1>Регистрация</h1>
+        </div>
+        <div>
+
           <form className="regForm" action="/reg" method="post">
             <label>
               Имя:
@@ -21,8 +29,9 @@ function Reg({ title }) {
               <input name="phone" type="text" placeholder="Введите номер" />
             </label>
             <select name="role">
-              <option>Курьер</option>
-              <option>Заказчик</option>
+
+              <option>courier</option>
+
             </select>
             <label>
               Адрес:
@@ -30,7 +39,11 @@ function Reg({ title }) {
                 name="address"
                 type="text"
                 placeholder="Введите адрес"
+
                 id="tryApi"
+
+                id="Goo"
+
               />
             </label>
             <label>
@@ -45,9 +58,14 @@ function Reg({ title }) {
             <button type="submit">Зарегистрироваться</button>
           </form>
         </div>
+
         <div className="errorBlock"></div>
       </div>
       <div id="map" style={{ width: '600px', height: '400px' }}></div>
+
+        <div className="errorBlock" />
+      </div>
+
     </Layout>
   );
 }

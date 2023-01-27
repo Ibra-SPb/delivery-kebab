@@ -1,16 +1,19 @@
+/* eslint-disable react/prop-types */
 const React = require('react');
 
-module.exports = function ProductPage({ product, user }) {
+module.exports = function ProductPage({ order, user }) {
   return (
-    <div id={product.id}>
-      <img src={product.image} alt="product_pic" />
-      <span>{product.title}</span>
-      <p>{product.price}</p>
-      <p>{product.discountPrice}</p>
-      <p>{product.status}</p>
-      <address>{product.address}</address>
-      {user && (
-        <button className="buy-button" type="button">Выкупить</button>
+    <div id={order.product.id}>
+      <img src={order.product.image} alt="product_pic" />
+      <span>{order.product.title}</span>
+      <p>{order.product.price}</p>
+      <p>{order.discount}</p>
+      <p>{order.status}</p>
+      <address>{order.address}</address>
+      {user && user.role === 'customer' && (
+        <button className="buy-button" type="button">
+          Выкупить
+        </button>
       )}
     </div>
   );
