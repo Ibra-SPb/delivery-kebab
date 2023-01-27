@@ -1,8 +1,9 @@
 // registration
 const one = document.querySelector('#tryApi')
 const two = document.querySelector('#Goo')
-console.log(two)
 const regForm = document.querySelector('.regForm');
+const logForm = document.querySelector('.logForm');
+const orderNew = document.querySelector(`.Tableee`)
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -28,13 +29,13 @@ if (regForm) {
       errorBlock.innerHTML = data.message;
       //   errorBlock.style.visibility = 'visible';
     } else {
-      window.location.assign('/');
+      window.location.replace('http://localhost:3000');
     }
   });
 }
 
 // auth
-const logForm = document.querySelector('.logForm');
+
 
 if (logForm) {
   logForm.addEventListener('submit', async (e) => {
@@ -52,12 +53,12 @@ if (logForm) {
 
     });
     const data = await res.json();
-
+    console.log(data)
     if (!data.status) {
       const errorBlock = document.querySelector('.errorBlock');
       errorBlock.innerHTML = data.message;
     } else {
-      window.location.assign('/');
+      window.location.replace('http://localhost:3000')
     }
   });
 }
@@ -192,6 +193,22 @@ if (closeOrder) {
     console.log(data)
     if (data.message) {
       e.target.closest('.ord').remove()
+    }
+  })
+}
+
+
+console.log(orderNew)
+if (orderNew) {
+  orderNew.addEventListener('click', async (e) => {
+    e.preventDefault()
+    const res = await fetch(`/${e.target.dataset.id}`, {
+      method: 'put',
+    })
+    const data = await res.json()
+    console.log(data)
+    if (data.message) {
+      e.target.closest('.vkusno').remove()
     }
   })
 }

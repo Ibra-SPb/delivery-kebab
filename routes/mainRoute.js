@@ -50,18 +50,46 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
+  const { userId } = req.session
   const { id } = req.params;
-  const order = await Order.update(
-    { status: 'closed' },
-    {
-      where: { id },
-      returning: true
+  console.log(userId)
+  const user = await User.findOne({ where: { id: userId } })
+  console.log(user)
+  try {
+    if (user.role === 'courier') {
+      const order = await Order.update(
+        { status: 'closed' },
+        {
+          where: { id },
+          returning: true
+        }
+      )
+      if (order) {
+        res.json({ message: 'success' })
+      }
+    } else if (user.role === 'customer') {
+      const order = await Order.update(
+        {
+          status: 'ordered'
+        },
+        {
+          where: { id },
+          returning: true
+        }
+      )
+      if (order) {
+        res.json({ message: 'success' })
+      }
     }
-  )
-  if (order) {
-    res.json({ message: 'success' })
+  } catch (e) {
+    console.log(e.message)
+    res.end()
   }
 })
+
+// router.put('/:idd', async (req, res) => {
+
+// })
 
 
 module.exports = router;
