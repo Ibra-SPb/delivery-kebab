@@ -1,7 +1,8 @@
 // registration
-const one = document.querySelector('#tryApi')
-const two = document.querySelector('#Goo')
-console.log(two)
+
+const one = document.querySelector('#tryApi');
+const two = document.querySelector('#Goo');
+console.log(two, one);
 const regForm = document.querySelector('.regForm');
 if (regForm) {
   regForm.addEventListener('submit', async (e) => {
@@ -153,25 +154,39 @@ function init() {
   // }
 }
 
-
-//addOrder
-const addOrder = document.querySelector('.addForm')
+// addOrder
+const addOrder = document.querySelector('.addForm');
 if (addOrder) {
   addOrder.addEventListener('submit', async (e) => {
-    e.preventDefault()
-  })
+    e.preventDefault();
+  });
 }
 
 // id="tryApi"
 
-one.addEventListener('change', (event) => {
+one?.addEventListener('change', async (event) => {
+  const res = await fetch('/file/from', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: event.target.value })
+  });
+  // const data = await res.json();
   ymaps.ready(init);
   from = event.target.value;
   console.log(event.target.value);
 });
-two.addEventListener('change', (event) => {
+two?.addEventListener('change', async (event) => {
+  const res = await fetch('/file/to', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text: event.target.value })
+  });
+  // const data1 = await res.json();
+  const res2 = await fetch('/file/from')
+  const dt = await res2.json()
+  from = dt
   to = event.target.value;
+
   ymaps.ready(init);
   console.log(event.target.value);
 });
-
